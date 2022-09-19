@@ -5,7 +5,7 @@ import java.util.Objects;
 //Object is the superclass automatically
 public class Card implements Comparable<Card> {
 
-  //1. field Declaration. modifier modifier Type Name. Final is asking the compiler to only have single value,
+  //1. field Declaration. modifier Type Name. Final is asking the compiler to only have single value,
   private final Rank rank; // and in return expects initialization...
   private final Suit suit;
 
