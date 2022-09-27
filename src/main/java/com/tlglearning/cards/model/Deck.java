@@ -2,6 +2,7 @@ package com.tlglearning.cards.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -34,6 +35,14 @@ public class Deck implements Iterable<Card> {
   //shuffle method default src of randomness. Now we know how to shuffle.
   public void shuffle() {
     Collections.shuffle(cards);
+  }
+
+  public void sort() {
+    sort(null); // method invocation (of the 2nd sort below)
+  }
+
+  public void sort(Comparator<Card> comparator) {
+    cards.sort(comparator);
   }
 
   //delegating tasks to the list of cards (overriding from object)
