@@ -9,6 +9,23 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
+    //color first is  local class
+    class ColorFirst implements Comparator<Card> {
+
+      @Override
+      public int compare(Card card1, Card card2) {
+        int comparison = card1.suit().color().compareTo(card2.suit().color());
+        if (comparison == 0) {
+          comparison = card1.suit().compareTo(card2.suit());
+          if (comparison==0) {
+            comparison = - card1.rank().compareTo(card2.rank()); // negative reverses the comparison going in descending order.
+          }
+        }
+        return comparison;
+      }
+
+    }
+
     //create an instance of Deck
     Deck deck = new Deck();
     //print the string representation of the deck
@@ -25,20 +42,5 @@ public class Main {
     System.out.println(deck);
   }
 
-  private static class ColorFirst implements Comparator<Card> {
-
-    @Override
-    public int compare(Card card1, Card card2) {
-      int comparison = card1.suit().color().compareTo(card2.suit().color());
-      if (comparison == 0) {
-        comparison = card1.suit().compareTo(card2.suit());
-        if (comparison==0) {
-          comparison = - card1.rank().compareTo(card2.rank()); // negative reverses the comparison going in descending order.
-        }
-      }
-      return comparison;
-    }
-
-  }
 
 }
