@@ -9,8 +9,8 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-    //color first is  local class
-    class ColorFirst implements Comparator<Card> {
+    //constructing an anomalous class and instructing the instance into local variable comparator.
+    Comparator<Card> comparator = new Comparator<>() {
 
       @Override
       public int compare(Card card1, Card card2) {
@@ -24,7 +24,7 @@ public class Main {
         return comparison;
       }
 
-    }
+    };
 
     //create an instance of Deck
     Deck deck = new Deck();
@@ -38,7 +38,7 @@ public class Main {
     System.out.println(deck);
     deck.sort();
     System.out.println(deck);
-    deck.sort(new ColorFirst()); //creating an instance of 3rd party that does it in descending order.
+    deck.sort(comparator); //creating an instance of 3rd party that does it in descending order.
     System.out.println(deck);
   }
 
