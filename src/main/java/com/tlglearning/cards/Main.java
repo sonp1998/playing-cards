@@ -24,19 +24,21 @@ public class Main {
     deck.sort(new ColorFirst()); //creating an instance of 3rd party that does it in descending order.
     System.out.println(deck);
   }
-}
 
-class ColorFirst implements Comparator<Card> {
+  private class ColorFirst implements Comparator<Card> {
 
-  @Override
-  public int compare(Card card1, Card card2) {
-    int comparison = card1.suit().color().compareTo(card2.suit().color());
-    if (comparison == 0) {
-      comparison = card1.suit().compareTo(card2.suit());
-      if (comparison==0) {
-        comparison = - card1.rank().compareTo(card2.rank()); // negative reverses the comparison going in descending order.
+    @Override
+    public int compare(Card card1, Card card2) {
+      int comparison = card1.suit().color().compareTo(card2.suit().color());
+      if (comparison == 0) {
+        comparison = card1.suit().compareTo(card2.suit());
+        if (comparison==0) {
+          comparison = - card1.rank().compareTo(card2.rank()); // negative reverses the comparison going in descending order.
+        }
       }
+      return comparison;
     }
-    return comparison;
+
   }
+
 }
